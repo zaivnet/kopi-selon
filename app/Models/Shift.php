@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Shift extends Model
+{
+   use HasFactory;
+   protected $table = 'shift';
+
+   protected $fillable = [
+      'tenant_id',
+      'shift',
+      'start_time',
+      'end_time'
+   ];
+
+   public function tenant()
+   {
+      return $this->belongsTo(Tenant::class);
+   }
+}

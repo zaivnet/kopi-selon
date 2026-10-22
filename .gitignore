@@ -1,0 +1,61 @@
+# Cache & IDE
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.fleet
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Logs & Framework Storage
+npm-debug.log
+yarn-error.log
+*.log
+storage/logs/*
+!storage/logs/.gitignore
+storage/framework/cache/*
+!storage/framework/cache/.gitignore
+storage/framework/cache/data/*
+!storage/framework/cache/data/.gitignore
+storage/framework/sessions/*
+!storage/framework/sessions/.gitignore
+storage/framework/testing/*
+!storage/framework/testing/.gitignore
+storage/framework/views/*
+!storage/framework/views/.gitignore
+storage/app/*
+!storage/app/.gitignore
+storage/app/public/*
+!storage/app/public/.gitignore
+
+# Database Dumps & Backups
+*.sql
+*.sqlite
+*.db
+*.bak
+*.backup
+*.dump
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# User Uploads / Production Upload Data
+# Note: thumbnail.png is default asset and is tracked. Production uploads match logo_*
+public/assets/logo/logo_*

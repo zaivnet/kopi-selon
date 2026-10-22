@@ -1,0 +1,212 @@
+.sidebar-wrapper {
+    top: 0 !important;
+}
+
+#toggle-dark {
+    scale: 1.2 !important;
+    margin-top: 2px !important;
+}
+
+#theme-icon-wrapper svg {
+    scale: 1.2 !important;
+    margin-top: -2px !important;
+}
+
+.navbar-top {
+    position: fixed !important;
+    top: -5px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 0 !important;
+}
+
+.icon-keranjang .badge-notification {
+    right: 0 !important;
+}
+
+.dropdown .avatar {
+    margin-right: 0 !important;
+}
+
+#body-kasir.dark .kasir-navbar,
+#body-kasir.dark .kasir-navbar,
+#body-kasir.dark .kasir-navbar {
+    background-color: #121212 !important;
+}
+
+#body-kasir.light .kasir-navbar,
+#body-kasir.light .kasir-navbar,
+#body-kasir.light .kasir-navbar {
+    background-color: #f8f9fa !important;
+}
+
+#body-kasir.light .kasir-navbar,
+#body-kasir.light .kasir-navbar .menu-link,
+#body-kasir.light .kasir-navbar .navbar-brand {
+    color: #212529 !important; /* dark text */
+}
+
+#body-kasir.dark .kasir-navbar,
+#body-kasir.dark .kasir-navbar .menu-link,
+#body-kasir.dark .kasir-navbar .navbar-brand {
+    color: #f8f9fa !important;
+}
+
+/* Light */
+#body-kasir.light .kasir-navbar .menu-link:hover,
+#body-kasir.light .kasir-navbar .menu-link.active {
+    color: #0d6efd !important;
+}
+
+/* Dark */
+#body-kasir.dark .kasir-navbar .menu-link:hover,
+#body-kasir.dark .kasir-navbar .menu-link.active {
+    color: #66b2ff !important;
+}
+
+/* spinner CSS */
+#spinner {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+/* end spinner */
+
+/* halaman login CSS */
+.login-logo {
+    width: 140px !important;
+    height: 140px !important;
+}
+
+.login-text {
+    font-size: 2.3rem !important;
+}
+
+.auth-logo {
+    margin-bottom: 1rem !important;
+    margin-top: -3rem !important;
+}
+
+#auth-left {
+    margin-top: 0px !important;
+}
+
+.login-theme {
+    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
+}
+
+.produk-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
+    gap: 16px;
+    justify-content: center;
+    /* 👈 agar tetap center meski col sedikit */
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+    height: 100%;
+    min-width: 130px;
+    /* background: white; */
+    /* border-radius: 10px; */
+    /* border: 1px solid #ddd; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.product-title {
+    margin-top: 10px;
+    min-height: 40px;
+    color: white;
+}
+
+.product-price {
+    margin-top: auto;
+    font-weight: bold;
+    color: white;
+}
+
+.product-stok {
+    font-size: 14px;
+    color: white;
+    font-weight: normal;
+}
+
+#body-kasir.dark .pagination .page-item.active .page-link {
+    background-color: #66b2ff;
+    border-color: #66b2ff;
+    color: #fff !important;
+}
+
+#body-kasir .pagination .page-link:hover {
+    background-color: rgba(13, 110, 253, 0.15);
+}
+
+/* SETAK STRUK */
+/* STYLE STRUK 58mm */
+#struk-wrapper {
+    width: 43mm;
+    /* ukuran aman untuk 58mm */
+    margin: auto;
+    padding: 12px 8px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    /* visibility: hidden; */
+}
+
+/* Judul & teks tengah */
+#struk-wrapper h2 {
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+#struk-wrapper p {
+    font-size: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Garis putus */
+#struk-wrapper .line {
+    border-bottom: 1px dashed #000;
+    margin: 6px 0;
+}
+
+/* Tabel */
+#struk-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+#struk-wrapper table td {
+    padding: 2px 0;
+}
+
+/* Rata kanan (harga) */
+#struk-wrapper .right {
+    text-align: right;
+}
+
+#struk-wrapper .baris-produk {
+    margin: 5px 0;
+}
+
+body .btn-toko:hover {
+    opacity: 75%;
+    transition: opacity 0.3s ease;
+}

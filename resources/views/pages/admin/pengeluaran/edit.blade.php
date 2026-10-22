@@ -1,0 +1,47 @@
+@extends('layout.admin.app')
+@section('content')
+<div class="page-heading">
+   <div class="page-title">
+      <div class="row">
+         <div class="col-12 col-md-6 order-md-1 order-last mt-10">
+            <h3>Edit Pengeluaran</h3>
+         </div>
+      </div>
+   </div>
+
+   <section class="section">
+      <div class="card">
+         <div class="card-body">
+            <form action="{{ route('admin.pengeluaran.update', $pengeluaran->id) }}" method="post">
+               @csrf
+               @method('GET')
+               <div class="form-group mb-3">
+                  <label for="deskripsi" class="form-label">Deskripsi</label>
+                  <textarea name="deskripsi" class="form-control" id="deskripsi" rows="2" autofocus
+                     placeholder="Berikan deskripsi pengeluaran"
+                     required>{{ old('deskripsi', $pengeluaran->deskripsi) }}</textarea>
+               </div>
+
+               <label for="jumlah">Jumlah Pengeluaran (Rp)</label>
+               <div class="form-group">
+                  <input type="text" id="jumlah" class="form-control" name="jumlah"
+                     placeholder="Masukkan jumlah pengeluaran" required oninput="formatCurrency(this)"
+                     value="{{ old('jumlah', number_format($pengeluaran->jumlah, 0, ',', '.'))}}">
+               </div>
+
+               <div class="mt-4 text-end">
+                  <a href="{{ url()->previous() }}">
+                     <button type="button" class="btn btn-outline-light rounded-pill">
+                        <span class="d-sm-block">Kembali</span>
+                     </button>
+                  </a>
+                  <button type="submit" class="btn btn-outline-primary rounded-pill ms-1">
+                     <span class="d-sm-block">Update</span>
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
+</div>
+@endsection
