@@ -18,6 +18,18 @@
       /* sesuaikan */
       overflow-y: auto;
    }
+
+   .product-card.btn-warning {
+      background-color: #ff9f43;
+      border-color: #ff9f43;
+      color: #fff;
+   }
+
+   .product-card.btn-warning:hover {
+      background-color: #f39c12;
+      border-color: #f39c12;
+      color: #fff;
+   }
 </style>
 @php
 $kode_transaksi = 'TRX' . date('YmdHis');
@@ -279,6 +291,7 @@ $kode_transaksi = 'TRX' . date('YmdHis');
 <script>
    // console.log('Halaman Transaksi Kasir');
    $(document).ready(function() {
+      const isKasir = {{ auth()->check() && auth()->user()->isKasir() ? 'true' : 'false' }};
       getProduk();
 
       function getProduk(page = 1) {
@@ -300,8 +313,28 @@ $kode_transaksi = 'TRX' . date('YmdHis');
                produkWrapper.empty(); // Clear existing products
                // console.log(data, response);
                $.each(data, function(index, produk) {
-                  const btnClass = produk.stok > 0 ? 'btn-success' : 'btn-danger';
-                  const disabledAttr = produk.stok > 0 ? '' : 'style="pointer-events:none; opacity:0.6"';
+                  const stok = parseInt(produk.stok) || 0;
+                  let btnClass = '';
+                  let stokLabel = '';
+
+                  if (isKasir) {
+                     if (stok >= 20) {
+                        stokLabel = 'Sisa Stok: Tersedia';
+                        btnClass = 'btn-success'; // Hijau
+                     } else if (stok >= 1) {
+                        stokLabel = 'Sisa Stok: Menipis';
+                        btnClass = 'btn-warning'; // Kuning/Oranye
+                     } else {
+                        stokLabel = 'Sisa Stok: Habis';
+                        btnClass = 'btn-danger';  // Merah
+                     }
+                  } else {
+                     // Perilaku semula untuk Admin dan role lainnya
+                     stokLabel = `Stok: ${produk.stok}`;
+                     btnClass = stok > 0 ? 'btn-success' : 'btn-danger';
+                  }
+
+                  const disabledAttr = stok > 0 ? '' : 'style="pointer-events:none; opacity:0.6"';
                   let harga_jual = parseFloat(produk.harga_jual);
                   var productCard = `
                      <a href="#" class="select-product" data-id="${produk.produk_varian_id}" data-stok="${produk.stok}" data-produk-toko-id="${produk.produk_toko_id}" data-nama_produk="${produk.nama_produk}"
@@ -314,7 +347,7 @@ $kode_transaksi = 'TRX' . date('YmdHis');
                            <h6 class="product-title flex-grow-1 d-flex align-items-center">${produk.nama_varian}</h6>
             
                            <p class="product-price flex-grow-0">Rp${Math.floor(harga_jual).toLocaleString('id-ID')}<br><span
-                                 class="product-stok">Stok: ${produk.stok}</span>
+                                 class="product-stok">${stokLabel}</span>
                            </p>
                         </div>
                      </a>
